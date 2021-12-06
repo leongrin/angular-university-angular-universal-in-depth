@@ -6,6 +6,7 @@ import {map, tap} from 'rxjs/operators';
 import {Title} from '@angular/platform-browser';
 
 @Component({
+  // tslint:disable-next-line:component-selector
   selector: 'home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
