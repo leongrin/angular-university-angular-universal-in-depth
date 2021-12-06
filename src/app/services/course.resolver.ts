@@ -10,20 +10,20 @@ import {isPlatformServer} from '@angular/common';
 @Injectable()
 export class CourseResolver implements Resolve<Course> {
 
-    constructor(private coursesService: CoursesService) {
+  constructor(private coursesService: CoursesService) {
 
-    }
+  }
 
-    resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<Course> {
+  resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<Course> {
 
-        const courseId = route.params['id'];
+    const courseId = route.params.id;
 
-        return this.coursesService.findCourseById(courseId)
-            .pipe(
-                first()
-            );
+    return this.coursesService.findCourseById(courseId)
+      .pipe(
+        first()
+      );
 
 
-    }
+  }
 
 }

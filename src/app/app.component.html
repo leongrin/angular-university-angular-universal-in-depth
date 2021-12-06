@@ -36,5 +36,11 @@
 
   <router-outlet></router-outlet>
 
+  <!--This component needs to be visible only on the server side, and hidden on the client side. It is part of the
+  application shell. The custom structure directive appShellRender is going to make this happen.-->
+  <div class="spinner-container" *appShellRender>
+    <mat-spinner></mat-spinner>
+  </div>
+
 
 </mat-sidenav-container>

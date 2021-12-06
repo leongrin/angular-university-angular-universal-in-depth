@@ -1,27 +1,32 @@
 import {Component, OnInit} from '@angular/core';
-import {Course} from "../model/course";
-import {Observable} from "rxjs";
-import {CoursesService} from "../services/courses.service";
+import {Course} from '../model/course';
+import {Observable} from 'rxjs';
+import {CoursesService} from '../services/courses.service';
 import {map, tap} from 'rxjs/operators';
+import {Title} from '@angular/platform-browser';
 
 @Component({
-    selector: 'home',
-    templateUrl: './home.component.html',
-    styleUrls: ['./home.component.css']
+  selector: 'home',
+  templateUrl: './home.component.html',
+  styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
 
-    courses$: Observable<Course[]>;
+  courses$: Observable<Course[]>;
 
-    constructor(private coursesService: CoursesService) {
+  constructor(private coursesService: CoursesService,
+              private title: Title) {
 
-    }
+  }
 
-    ngOnInit() {
-        this.courses$ = this.coursesService.findAllCourses()
-            .pipe(
-                map(Object.values)
-            );
-    }
+  ngOnInit() {
+
+    this.title.setTitle('Home Component');  // meta tags for the title
+
+    this.courses$ = this.coursesService.findAllCourses()
+      .pipe(
+        map(Object.values)
+      );
+  }
 
 }
